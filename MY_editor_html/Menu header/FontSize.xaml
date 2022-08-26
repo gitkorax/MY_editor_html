@@ -1,0 +1,18 @@
+﻿<Window x:Class="MY_editor_html.Menu_header.FontSize"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MY_editor_html.Menu_header"
+        mc:Ignorable="d"
+        Title="FontSize" Height="45" Width="260"
+        WindowStyle="None"
+        >
+    <Grid>
+        <DockPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Label>FontSize</Label>
+            <ComboBox x:Name="FontSize_combobox" Width="40" Height="20" ></ComboBox>
+            <Button x:Name="FontSize_aceptar" Width="100" Height="20" Margin="20 0 20 0 "  >Aceptar</Button>                       
+        </DockPanel>
+    </Grid>
+</Window>

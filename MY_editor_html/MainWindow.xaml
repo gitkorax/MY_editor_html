@@ -1,0 +1,222 @@
+﻿<Window x:Class="MY_editor_html.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MY_editor_html"
+        mc:Ignorable="d"
+        Closing="Window_Closing"                
+        Title="Editor HTML" Height="450" Width="1100" Icon="/editor.png"
+        
+        >    
+    
+    <Grid x:Name="mygrid" >        
+
+        <Grid.Resources  >
+            <LinearGradientBrush x:Key="gradient" StartPoint="0,0" EndPoint="1,1"  >
+                <GradientStop  Color="White" Offset="0.0"></GradientStop>                
+                <GradientStop  Color="Black" Offset="6.4" ></GradientStop>                
+            </LinearGradientBrush>
+            
+        </Grid.Resources>    
+        
+        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" ></RowDefinition>
+            <RowDefinition Height="25" ></RowDefinition>
+            <RowDefinition Height="25" ></RowDefinition>
+            <RowDefinition Height="25" ></RowDefinition>
+            <RowDefinition Height="25" ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.ColumnSpan="1">
+            <MenuItem Header="_Archivo" x:Name="Boton_archivo" Click="Boton_archivo_Click">
+                <MenuItem Header="_Nuevo" x:Name="Boton_nuevo" Click="Boton_nuevo_Click"></MenuItem>
+                <MenuItem Header="_Abrir documento" x:Name="Boton_abrir_documento" Click="Boton_abrir_documento_Click" ></MenuItem>
+                <MenuItem Header="_Guardar" x:Name="Boton_guardar" Click="Boton_guardar_Click"></MenuItem>
+                <MenuItem Header="_Guardar como..." x:Name="Boton_guardar_como" Click="Boton_guardar_como_Click"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="_Abrir Combobox" x:Name="Boton_abrir_combobox" Click="Boton_abrir_combobox_Click"></MenuItem>
+                <MenuItem Header="_Guardar el ComboBox" x:Name="Boton_guardar_combobox" Click="Boton_guardar_combobox_Click"></MenuItem>                
+                <Separator></Separator>                
+                <MenuItem Header="_Salir" x:Name="Boton_salir" Click="Boton_salir_Click"></MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="_Editar">
+
+                <MenuItem Header="_Cortar" x:Name="Boton_cortar" Click="Boton_cortar_Click"></MenuItem>
+                <MenuItem Header="_Copiar" x:Name="Boton_copiar" Click="Boton_copiar_Click"></MenuItem>
+                <MenuItem Header="_Pegar" x:Name="Boton_pegar" Click="Boton_pegar_Click"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="_Seleccionar todo" x:Name="Boton_seleccionar_todo" Click="Boton_seleccionar_todo_Click"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="_Deshacer" x:Name="Boton_deshacer" Click="Boton_deshacer_Click"></MenuItem>
+                <MenuItem Header="_Rehacer" x:Name="Boton_rehacer" Click="Boton_rehacer_Click"></MenuItem>
+                
+                
+            </MenuItem>
+
+            <MenuItem Header="_HTML">
+                <MenuItem Header="_Codificar caracteres html" x:Name="Boton_codificar_caracteres_html" Click="Boton_codificar_caracteres_html_Click" ></MenuItem>
+                <MenuItem Header="_Decodificar palabras html" x:Name="Boton_decodificar_palabras_html" Click="Boton_decodificar_palabras_html_Click"></MenuItem>
+            </MenuItem>
+
+            <MenuItem Header="_Configuración">              
+
+                <MenuItem Header="_Tamaño_fuente" x:Name="Boton_tamaño_fuente" Click="Boton_tamaño_fuente_Click">
+                </MenuItem>
+
+            </MenuItem>
+        </Menu>
+
+        <DockPanel Grid.Row="1" HorizontalAlignment="Left">
+
+            <DockPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="90"></Setter>
+                    <Setter Property="Background" Value="{StaticResource gradient}" ></Setter>
+                    <Setter Property="Margin" Value="1"></Setter>
+                    <Setter Property="BorderBrush" Value="Black" />
+                    <Setter Property="BorderThickness" Value="1"></Setter>                    
+                </Style>
+            </DockPanel.Resources>
+            <Button x:Name="Boton_etiqueta_main"  Click="Boton_etiqueta_main_Click">Main</Button>
+            <Button x:Name="Boton_etiqueta_header"  Click="Boton_etiqueta_header_Click" >Header</Button>
+            <Button x:Name="Boton_etiqueta_nav"  Click="Boton_etiqueta_nav_Click">Nav</Button>
+            <Button x:Name="Boton_etiqueta_aside"  Click="Boton_etiqueta_aside_Click">Aside</Button>
+            <Button x:Name="Boton_etiqueta_section"  Click="Boton_etiqueta_section_Click">Section</Button>
+            <Button x:Name="Boton_etiqueta_article"  Click="Boton_etiqueta_article_Click">Article</Button>
+            <Button x:Name="Boton_etiqueta_footer"  Click="Boton_etiqueta_footer_Click">Footer</Button>
+            <Button x:Name="Boton_etiqueta_Div"  Click="Boton_etiqueta_Div_Click">Div</Button>
+            <Button x:Name="Boton_etiqueta_figure"  Click="Boton_etiqueta_figure_Click">Figure</Button>
+            <Button x:Name="Boton_etiqueta_img"  Click="Boton_etiqueta_img_Click">Img</Button>
+            <Button x:Name="Boton_etiqueta_video"  Click="Boton_etiqueta_video_Click">Video</Button>
+
+
+
+        </DockPanel>
+
+        <DockPanel Grid.Row="2" HorizontalAlignment="Left" >
+
+            <DockPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="50"></Setter>
+                    <Setter Property="Background" Value="{StaticResource gradient}" ></Setter>
+                    <Setter Property="Margin" Value="1"></Setter>
+                    <Setter Property="BorderBrush" Value="Black" />
+                    <Setter Property="BorderThickness" Value="1"></Setter>
+                </Style>
+            </DockPanel.Resources>
+
+            <ComboBox x:Name="My_combobox_H" Width="50" DropDownClosed="My_combobox_H_DropDownClosed">
+                <ComboBoxItem>H1</ComboBoxItem>
+                <ComboBoxItem>H2</ComboBoxItem>
+                <ComboBoxItem>H3</ComboBoxItem>
+                <ComboBoxItem>H4</ComboBoxItem>
+                <ComboBoxItem>H5</ComboBoxItem>
+                <ComboBoxItem>H6</ComboBoxItem>
+            </ComboBox>
+
+            <Button x:Name="Boton_etiqueta_h"  Click="Boton_etiqueta_h_Click" >H1</Button>
+            <Button x:Name="Boton_etiqueta_p"  Click="Boton_etiqueta_p_Click">p</Button>
+            <Button x:Name="Boton_etiqueta_b"  Click="Boton_etiqueta_b_Click">b</Button>
+            <Button x:Name="Boton_etiqueta_i"  Click="Boton_etiqueta_i_Click">i</Button>
+            <Button x:Name="Boton_etiqueta_span"  Click="Boton_etiqueta_span_Click">span</Button>
+            <Button x:Name="Boton_etiqueta_em"  Click="Boton_etiqueta_em_Click">em</Button>
+            <Button x:Name="Boton_etiqueta_bdo"  Click="Boton_etiqueta_bdo_Click">bdo</Button>
+            <Button x:Name="Boton_etiqueta_pre"  Click="Boton_etiqueta_pre_Click">pre</Button>
+            <Button x:Name="Boton_etiqueta_strong"  Click="Boton_etiqueta_strong_Click">strong</Button>
+            <Button x:Name="Boton_etiqueta_code"  Click="Boton_etiqueta_code_Click">code</Button>
+            <Button x:Name="Boton_etiqueta_br"  Click="Boton_etiqueta_br_Click">br</Button>
+            <Button x:Name="Boton_etiqueta_hr"  Click="Boton_etiqueta_hr_Click">hr</Button>
+            <Button x:Name="Boton_etiqueta_table"  Click="Boton_etiqueta_table_Click">table</Button>
+            <Button x:Name="Boton_etiqueta_thead"  Click="Boton_etiqueta_thead_Click">thead</Button>
+            <Button x:Name="Boton_etiqueta_tbody"  Click="Boton_etiqueta_tbody_Click">tbody</Button>
+            <Button x:Name="Boton_etiqueta_tfoot"  Click="Boton_etiqueta_tfoot_Click">tfoot</Button>
+            <Button x:Name="Boton_etiqueta_th"  Click="Boton_etiqueta_th_Click">th</Button>
+            <Button x:Name="Boton_etiqueta_tr"  Click="Boton_etiqueta_tr_Click">tr</Button>
+            <Button x:Name="Boton_etiqueta_td"  Click="Boton_etiqueta_td_Click">td</Button>
+
+        </DockPanel>
+
+        <DockPanel Grid.Row="3" HorizontalAlignment="Left">
+            <DockPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="90"></Setter>
+                    <Setter Property="Background" Value="{StaticResource gradient}" ></Setter>
+                    <Setter Property="Margin" Value="1"></Setter>
+                    <Setter Property="BorderBrush" Value="Black" />
+                    <Setter Property="BorderThickness" Value="1"></Setter>
+                </Style>
+            </DockPanel.Resources>
+            <ComboBox x:Name="CB_apertura" Width="600" DropDownClosed="CB_apertura_DropDownClosed"></ComboBox>
+            <ComboBox x:Name="CB_cierre" Width="100" DropDownClosed="CB_cierre_DropDownClosed"  ></ComboBox>
+            <Button x:Name="Añadir" Click="Añadir_Click" Width="100">Add</Button>
+            <Button x:Name="Eliminar" Click="Eliminar_Click" Width="100">Del</Button>
+
+        </DockPanel>
+
+        <DockPanel Grid.Row="4" HorizontalAlignment="Left">
+            <DockPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="90"></Setter>
+                    <Setter Property="Background" Value="{StaticResource gradient}" ></Setter>
+                    <Setter Property="Margin" Value="1"></Setter>
+                    <Setter Property="BorderBrush" Value="Black" />
+                    <Setter Property="BorderThickness" Value="1"></Setter>
+                </Style>
+            </DockPanel.Resources>
+            <TextBox x:Name="Textbox_apertura" Width="600">
+                <TextBox.ContextMenu>
+                    <ContextMenu >
+                        <MenuItem x:Name="textbox_apertura_contextmenu_cortar" Click="textbox_apertura_contextmenu_cortar_Click" Header="Cortar" ></MenuItem>
+                        <MenuItem x:Name="textbox_apertura_contextmenu_copiar" Click="textbox_apertura_contextmenu_copiar_Click" Header="Copiar"></MenuItem>
+                        <MenuItem x:Name="textbox_apertura_contextmenu_pegar" Click="textbox_apertura_contextmenu_pegar_Click" Header="Pegar"></MenuItem>
+                    </ContextMenu>
+                </TextBox.ContextMenu>
+            </TextBox>
+            <TextBox x:Name="Textbox_cierre" Width="100">
+                <TextBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="textbox_cierre_contextmenu_cortar" Click="textbox_cierre_contextmenu_cortar_Click" Header="Cortar"></MenuItem>
+                        <MenuItem x:Name="textbox_cierre_contextmenu_copiar" Click="textbox_cierre_contextmenu_copiar_Click" Header="Copiar"></MenuItem>
+                        <MenuItem x:Name="textbox_cierre_contextmenu_pegar" Click="textbox_cierre_contextmenu_pegar_Click" Header="Pegar"></MenuItem>
+                        
+                    </ContextMenu>
+                </TextBox.ContextMenu>
+            </TextBox>
+            <Button x:Name="Button_insertar_textboxes" Click="Button_insertar_textboxes_Click" Width="150">Insertar</Button>
+
+        </DockPanel>
+
+
+        <DockPanel Grid.Row="5">
+            <TextBox x:Name="My_textbox" 
+                     AcceptsReturn="True" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" 
+                     UndoLimit="1000" TextChanged="My_textbox_TextChanged" >
+                <TextBox.ContextMenu>
+                    <ContextMenu x:Name="My_Context_Menu_My_textbox">
+                        <MenuItem x:Name="My_textbox_Cortar" Click="My_textbox_Cortar_Click" Header="Cortar"></MenuItem>
+                        <MenuItem x:Name="My_textbox_Copiar" Click="My_textbox_Copiar_Click" Header="Copiar" ></MenuItem>
+                        <MenuItem x:Name="My_textbox_Pegar" Click="My_textbox_Pegar_Click" Header="Pegar" ></MenuItem>                        
+                        <MenuItem x:Name="My_textbox_seleccionar_todo" Click="My_textbox_seleccionar_todo_Click" Header="Seleccionar todo" ></MenuItem>
+                        <Separator></Separator>
+
+                        <MenuItem x:Name="My_textbox_codificar_caracteres" Click="My_textbox_codificar_caracteres_Click" Header="Codificar caracteres html" ></MenuItem>
+                        <MenuItem x:Name="My_text_decodificar_palabras" Click="My_text_decodificar_palabras_Click" Header="Decodificar palabras html" ></MenuItem>
+
+                        <Separator></Separator>
+                        <MenuItem x:Name="My_textbox_Deshacer" Click="My_textbox_Deshacer_Click" Header="Deshacer"></MenuItem>
+                        <MenuItem x:Name="My_textbox_Rehacer" Click="My_textbox_Rehacer_Click" Header="Rehacer"></MenuItem>                        
+                    </ContextMenu>
+                </TextBox.ContextMenu>
+            </TextBox>
+        </DockPanel>
+
+    </Grid>
+
+
+
+</Window>
