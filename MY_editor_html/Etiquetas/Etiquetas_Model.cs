@@ -27,7 +27,7 @@ namespace MY_editor_html
 
     public partial class MainWindow
     {
-
+        Etiquetas_Model _Etiqueta_main;
         Etiquetas_Model _Etiqueta_header;
         Etiquetas_Model _Etiqueta_nav;
         Etiquetas_Model _Etiqueta_aside;
@@ -63,6 +63,7 @@ namespace MY_editor_html
 
         public void Instanciacion_de_etiquetas ()
         {
+            _Etiqueta_main = new Etiquetas_Model("<main>", "</main>");
             _Etiqueta_header = new Etiquetas_Model("<header>", "</header>");
             _Etiqueta_nav = new Etiquetas_Model("<nav>", "</nav>");
             _Etiqueta_aside = new Etiquetas_Model("<aside", "</aside>");

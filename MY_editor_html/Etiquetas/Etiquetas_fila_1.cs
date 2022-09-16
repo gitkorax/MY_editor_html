@@ -10,6 +10,13 @@ namespace MY_editor_html
     public partial class MainWindow
     {
 
+        private void Boton_etiqueta_main_Click(object sender, RoutedEventArgs e)
+        {
+            My_textbox.SelectedText = _Etiqueta_main.Insertar_etiqueta(My_textbox.SelectedText);
+            My_textbox.Focus();
+        }
+
+
         private void Boton_etiqueta_header_Click(object sender, RoutedEventArgs e)
         {
             My_textbox.SelectedText = _Etiqueta_header.Insertar_etiqueta(My_textbox.SelectedText);

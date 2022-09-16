@@ -95,11 +95,7 @@ namespace MY_editor_html
             }      
         }
 
-        private void Boton_etiqueta_main_Click(object sender, RoutedEventArgs e)
-        {
-            // pruebas();
-        }
-
+        
 
     }
 }
